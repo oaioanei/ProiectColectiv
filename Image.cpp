@@ -203,7 +203,7 @@ void Image::algorithm5()
 		}
 }
 
-void Image::insertAlg(std::string text)
+void Image::insertAlg(std::string text, std::string text2)
 {
 	double pi = 3.14159265359;
 	image.clear();
@@ -218,6 +218,13 @@ void Image::insertAlg(std::string text)
 	double x;
 	double y;
 	double c;
+
+	int m, n, p;
+	srand(time(NULL));
+
+	m = rand() % 255;
+	n = rand() % 255;
+	p = rand() % 255;
 
 	symbol_table_t symbol_table;
 	symbol_table.add_variable("x", x);
@@ -237,8 +244,10 @@ void Image::insertAlg(std::string text)
 			y = j * (pi / 180);
 			c = expression.value();
 			value = static_cast<int>(c) % 16;
-			Color color((unsigned char)value * 29, (unsigned char)value * 100, (unsigned char)value * 100);
+			Color color((unsigned char)value * m, (unsigned char)value *n, (unsigned char)value * p);
 			image.push_back(color);
 		}
-	generateBMP(0, "customImage", "assets");
+
+	const char* str = text2.c_str();
+	generateBMP(0, str, "pictures");
 }

@@ -1,6 +1,8 @@
 #pragma once
 #include "Color.h"
 #include <vector>
+#include <stdlib.h>
+#include <time.h>
 
 class Image
 {
@@ -25,6 +27,6 @@ public:
 	void algorithm3();
 	void algorithm4();
 	void algorithm5();
-	void insertAlg(std::string text);
+	void insertAlg(std::string text, std::string text2);
 };
 
