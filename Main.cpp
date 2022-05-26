@@ -1,7 +1,6 @@
 #include "AppWindow.h"
 #include "Image.h"
 #include "SDL.h"
-//#include "SDL_image.h"
 
 double Convert(double degree)
 {

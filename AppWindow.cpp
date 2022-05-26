@@ -56,7 +56,7 @@ void AppWindow::mainMenu(Image image)
 	renderFile("assets\\buton1.bmp", 20, 20, 280, 50);
 	renderFile("assets\\buton2.bmp", 20, 90, 280, 50);
 	renderFile("assets\\buton3.bmp", 20, 160, 280, 50);
-	renderFile("assets\\buton4.bmp", 20, 230, 280, 50);
+	renderFile("assets\\buton4.bmp", 20, 400, 280, 50);
 
 	while (!quit)
 	{
@@ -73,6 +73,7 @@ void AppWindow::mainMenu(Image image)
 				//buton algoritmi existenti
 				if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 20 && yposm < 70)
 					chooseAlgMenu(image);
+					
 
 				//buton introducere formula
 				if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 90 && yposm < 140)
@@ -83,7 +84,7 @@ void AppWindow::mainMenu(Image image)
 					findBMPMenu(image);
 
 				//buton exit
-				if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 230 && yposm < 280)
+				if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 400 && yposm < 460)
 				{
 					quit = true;
 				}
@@ -107,7 +108,7 @@ void AppWindow::chooseAlgMenu(Image image)
 	renderFile("assets\\beam.bmp", 20, 160, 280, 50);
 	renderFile("assets\\melt.bmp", 20, 230, 280, 50);
 	renderFile("assets\\puzzle.bmp", 20, 300, 280, 50);
-	renderFile("assets\\butonInapoi.bmp", 20, 370, 280, 50);
+	renderFile("assets\\butonInapoi.bmp", 20, 400, 280, 50);
 	
 	while (!quit)
 	{
@@ -151,10 +152,16 @@ void AppWindow::chooseAlgMenu(Image image)
 					renderFile("pictures\\example5.bmp", 321, 0, 640, 480);
 					SDL_RenderPresent(renderer);
 				}
-				if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 370 && yposm < 430)
+				if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 400 && yposm < 460)
 				{
-					mainMenu(image);
-					break;
+					SDL_RenderClear(renderer);
+					renderFile("assets\\blue.bmp", 0, 0, 325, 480);
+
+					renderFile("assets\\buton1.bmp", 20, 20, 280, 50);
+					renderFile("assets\\buton2.bmp", 20, 90, 280, 50);
+					renderFile("assets\\buton3.bmp", 20, 160, 280, 50);
+					renderFile("assets\\buton4.bmp", 20, 400, 280, 50);
+					return;
 				}
 				break;
 			}
@@ -208,7 +215,7 @@ void AppWindow::insertFormulaMenu(Image image)
 	SDL_DestroyTexture(Message1);
 	SDL_DestroyTexture(Message2);
 
-	renderFile("assets\\butonInapoi.bmp", 20, 370, 280, 50);
+	renderFile("assets\\butonInapoi.bmp", 20, 400, 280, 50);
 	std::string text1 = "", text2 = "";
 	SDL_StartTextInput();
 
@@ -258,7 +265,7 @@ void AppWindow::insertFormulaMenu(Image image)
 					renderFile("assets\\blue.bmp", 0, 0, 325, 480);
 					renderFile("assets\\white.bmp", 20, 20, 280, 35);
 					renderFile("assets\\white.bmp", 20, 90, 280, 35);
-					renderFile("assets\\butonInapoi.bmp", 20, 370, 280, 50);
+					renderFile("assets\\butonInapoi.bmp", 20, 400, 280, 50);
 
 					text1 = text1.substr(0, text1.length() - 1);
 					const char* str1 = text1.c_str();
@@ -290,7 +297,7 @@ void AppWindow::insertFormulaMenu(Image image)
 					renderFile("assets\\blue.bmp", 0, 0, 325, 480);
 					renderFile("assets\\white.bmp", 20, 20, 280, 35);
 					renderFile("assets\\white.bmp", 20, 90, 280, 35);
-					renderFile("assets\\butonInapoi.bmp", 20, 370, 280, 50);
+					renderFile("assets\\butonInapoi.bmp", 20, 400, 280, 50);
 
 					
 					text2 = text2.substr(0, text2.length() - 1);
@@ -324,7 +331,7 @@ void AppWindow::insertFormulaMenu(Image image)
 					renderFile("assets\\blue.bmp", 0, 0, 325, 480);
 					renderFile("assets\\white.bmp", 20, 20, 280, 35);
 					renderFile("assets\\white.bmp", 20, 90, 280, 35);
-					renderFile("assets\\butonInapoi.bmp", 20, 370, 280, 50);
+					renderFile("assets\\butonInapoi.bmp", 20, 400, 280, 50);
 
 					//write in box 1
 					if (textBox1Clicked == true)
@@ -382,10 +389,16 @@ void AppWindow::insertFormulaMenu(Image image)
 			}
 			
 			//back button
-			if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 370 && yposm < 430)
+			if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 400 && yposm < 460)
 			{
-				mainMenu(image);
-				break;
+				SDL_RenderClear(renderer);
+				renderFile("assets\\blue.bmp", 0, 0, 325, 480);
+
+				renderFile("assets\\buton1.bmp", 20, 20, 280, 50);
+				renderFile("assets\\buton2.bmp", 20, 90, 280, 50);
+				renderFile("assets\\buton3.bmp", 20, 160, 280, 50);
+				renderFile("assets\\buton4.bmp", 20, 400, 280, 50);
+				return;
 			}
 
 			//quit app
@@ -442,7 +455,7 @@ void AppWindow::findBMPMenu(Image image)
 	SDL_FreeSurface(errorMessage);
 	SDL_DestroyTexture(Message1);
 
-	renderFile("assets\\butonInapoi.bmp", 20, 370, 280, 50);
+	renderFile("assets\\butonInapoi.bmp", 20, 400, 280, 50);
 	std::string text = "";
 	SDL_StartTextInput();
 
@@ -454,14 +467,15 @@ void AppWindow::findBMPMenu(Image image)
 		{
 			int xposm = event.motion.x, yposm = event.motion.y;
 
+			//select box
 			if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 20 && yposm < 70)
 			{
 				textBoxClicked = true;
 			}
 
+			//write
 			if (textBoxClicked == true && event.type == SDL_TEXTINPUT || event.type == SDL_KEYDOWN)
 			{
-				system("cls");
 				if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_RETURN && text.length() > 0)
 				{
 					std::string file;
@@ -480,7 +494,7 @@ void AppWindow::findBMPMenu(Image image)
 					SDL_RenderClear(renderer);
 					renderFile("assets\\blue.bmp", 0, 0, 325, 480);
 					renderFile("assets\\white.bmp", 20, 20, 280, 35);
-					renderFile("assets\\butonInapoi.bmp", 20, 370, 280, 50);
+					renderFile("assets\\butonInapoi.bmp", 20, 400, 280, 50);
 
 					text = text.substr(0, text.length() - 1);
 					const char* str = text.c_str();
@@ -501,7 +515,7 @@ void AppWindow::findBMPMenu(Image image)
 					SDL_RenderClear(renderer);
 					renderFile("assets\\blue.bmp", 0, 0, 325, 480);
 					renderFile("assets\\white.bmp", 20, 20, 280, 35);
-					renderFile("assets\\butonInapoi.bmp", 20, 370, 280, 50);
+					renderFile("assets\\butonInapoi.bmp", 20, 400, 280, 50);
 
 					text += event.text.text;
 					const char* str = text.c_str();
@@ -513,22 +527,28 @@ void AppWindow::findBMPMenu(Image image)
 					SDL_FreeSurface(userMessage);
 					SDL_DestroyTexture(Message1);
 				}
-				std::cout << text << std::endl;
 				break;
 			}
 
+			//back button
+			if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 400 && yposm < 460)
+			{
+				SDL_RenderClear(renderer);
+				renderFile("assets\\blue.bmp", 0, 0, 325, 480);
+
+				renderFile("assets\\buton1.bmp", 20, 20, 280, 50);
+				renderFile("assets\\buton2.bmp", 20, 90, 280, 50);
+				renderFile("assets\\buton3.bmp", 20, 160, 280, 50);
+				renderFile("assets\\buton4.bmp", 20, 400, 280, 50);
+				return;
+			}
+
+			//quit app
 			if (event.type == SDL_QUIT)
 			{
 				quit = true;
 				break;
 			}
-
-			if (event.button.button == SDL_BUTTON_LEFT && xposm > 20 && xposm < 280 && yposm > 370 && yposm < 430)
-			{
-				mainMenu(image);
-				break;
-			}
-
 		}
 	}
 
